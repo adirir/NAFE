@@ -1,0 +1,9 @@
+---
+# Playbook to Configure NXOS
+- hosts: nxos
+  tasks:
+    - name: Configure a Single Command
+      nxos_config:
+          lines: ntp server 9.9.9.9 use-vrf default
+          
+          

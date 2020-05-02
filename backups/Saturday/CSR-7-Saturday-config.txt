@@ -1,0 +1,200 @@
+Building configuration...
+
+Current configuration : 3901 bytes
+!
+! Last configuration change at 20:42:11 UTC Sat May 2 2020 by cisco
+!
+version 16.9
+service timestamps debug datetime msec
+service timestamps log datetime msec
+platform qfp utilization monitor load 80
+no platform punt-keepalive disable-kernel-core
+platform console serial
+!
+hostname CSR-7
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+ip domain name test.com
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+! 
+! 
+! 
+! 
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-3846677705
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-3846677705
+ revocation-check none
+ rsakeypair TP-self-signed-3846677705
+!
+!
+crypto pki certificate chain TP-self-signed-3846677705
+ certificate self-signed 01
+  30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 33383436 36373737 3035301E 170D3230 30343330 31363139 
+  34315A17 0D333030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 38343636 
+  37373730 35308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201 
+  0A028201 0100E143 22A685F2 4862894C BFB7F038 435DB021 894245A2 4B76B7F1 
+  7A2C72C7 5E25C854 D493E18E 42F4EB9B E6AA7A48 D96FFEB3 ACEE07A7 13AF5236 
+  3721F3F5 3A2C535B BB6E3509 DF0F9CB0 3E2C6489 FC4BF369 39B69C02 44B587CC 
+  6A2DD9BD 184EE80B 87770983 7604AA57 0F3BAC4E 5C2B7CA2 98B29E3A 6606262D 
+  A391347C 216B4195 84B16546 1F26359F 1EF31454 001A7287 2B44E528 434CA03D 
+  DF32BE63 7AB0CC34 CE29AA2C AB99D373 C9D5E2AE E47A63FC AD8F7667 0B8A3643 
+  D2B8002E 7739C94C 0AC2C82A F5C6A697 5B40E12B B8CC175B AA217519 6B0DAFE4 
+  7947D728 CDAEE938 6699E7DE BE4F786B 3CA64B07 CDEA7072 AD4F470C BC28BBD9 
+  FAC035CE 4A890203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 
+  301F0603 551D2304 18301680 1474E107 0BE70378 1B84C881 CDE9839D 7F3FC950 
+  F6301D06 03551D0E 04160414 74E1070B E703781B 84C881CD E9839D7F 3FC950F6 
+  300D0609 2A864886 F70D0101 05050003 82010100 A474CB51 01FD0D18 F3B5410B 
+  EE6A3281 03A1B0AB C3C3BEDA F507C97A CCF82D35 2FBADC50 B96E2F5C 06D939BF 
+  072C78FE 947166D0 70F431DB D0274A97 F7891ADB 47B2436D 5794FDA9 C56BB4FD 
+  7F29BAF0 567FBDEE C52D917F DAAED8D8 6BCFA996 88B516F2 63B46936 16ABC662 
+  41B79588 82195B56 8CD62EC8 AAB98CD3 2B1E0C74 42EF3414 2A576759 99EB8042 
+  F4FED630 D7944230 24CCFE59 E7A80AE5 E2FE2599 35DC62B2 46D352FE 453C22FC 
+  A8DDE9F6 77748E1C 64B86ADF E1E9D495 D3C2D6C8 D4D9D073 B36251A6 8F244171 
+  FB1578FF 14B8DB69 847CE635 6CA9CA84 70620FD1 046E1C20 1A50D2F7 8DF73DFB 
+  3DB763C4 684CB659 4946FD27 08ECA7E8 43D2BA28
+  	quit
+!
+!
+!
+!
+!
+!
+!
+!
+license udi pid CSR1000V sn 9KSDX2G21W1
+no license smart enable
+diagnostic bootup level minimal
+!
+spanning-tree extend system-id
+!
+!
+!
+username cisco privilege 15 password 0 cisco12345
+!
+redundancy
+!
+!
+!
+!
+!
+!
+cdp run
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+! 
+! 
+!
+!
+interface GigabitEthernet1
+ ip address dhcp
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet2
+ no ip address
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet3
+ no ip address
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet4
+ no ip address
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+ip forward-protocol nd
+ip http server
+ip http authentication local
+ip http secure-server
+ip http client source-interface GigabitEthernet1
+!
+!
+!
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+line con 0
+ stopbits 1
+line vty 0 4
+ login local
+ transport input telnet ssh
+line vty 5 15
+ login local
+ transport input telnet ssh
+!
+ntp server 8.8.8.8
+ntp server 1.1.1.1
+ntp server 2.2.2.2
+ntp server 10.10.10.10
+ntp server 3.3.3.3
+ntp server 4.4.4.4
+ntp server 5.5.5.5
+!
+!
+!
+!
+!
+!
+pnp profile pnp_cco_profile
+ transport https ipv4 18.205.167.7 port 443
+end

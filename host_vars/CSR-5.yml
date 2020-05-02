@@ -1,0 +1,7 @@
+---
+hostname:
+    name: CSR-5
+router:
+    id: 5.5.5.5
+address:
+    loopback: 5.5.5.5

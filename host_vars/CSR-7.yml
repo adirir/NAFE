@@ -1,0 +1,7 @@
+---
+hostname:
+    name: CSR-7
+router:
+    id: 7.7.7.7
+address:
+    loopback: 7.7.7.7

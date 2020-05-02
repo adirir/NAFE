@@ -1,0 +1,10 @@
+[CSR_Routers]
+CSR-5  ansible_host=192.168.249.193
+CSR-6 ansible_host=192.168.249.201
+CSR-7  ansible_host=192.168.249.202
+
+[nxos]
+N9KV-1 ansible_host=192.168.249.251
+N9KV-2 ansible_host=192.168.249.250
+
+

@@ -1,0 +1,8 @@
+---
+hostname:
+    name: CSR-6
+router:
+    id: 6.6.6.6
+address:
+     loopback: 6.6.6.6
+     

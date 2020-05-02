@@ -1,0 +1,12 @@
+---
+- hosts : CSR_Routers
+  tasks:
+    - name: Display Version
+      ios_command:
+           commands: show ip int brief
+      register: version
+
+    - name: Save Output to File
+      copy:
+        content: "{{version.stdout[0]}}"
+        dest: "~/NAFE/{{inventory_hostname}}-version.txt"

@@ -1,0 +1,6 @@
+---
+#Global NXOS configuration
+ansible_user: "admin"
+ansible_ssh_pass: "cisco12345"
+ansible_network_os: "nxos"
+ansible_connection: "network_cli"

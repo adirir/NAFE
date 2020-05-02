@@ -1,0 +1,20 @@
+---
+# Playbook to Configure things
+- hosts: CSR_Routers
+  tasks:
+    - name: Configure a Single Command
+      ios_config:
+          lines: ntp server 8.8.8.8
+    - name: Configure devices using text File
+      ios_config:
+         src: "~/NAFE/config/config1.txt"
+
+    - name: Configure devices using Jinja2 template
+      ios_config:
+        src: "./configure1.j2"
+
+    - name: Save the config always
+      ios_config:
+         save_when: always
+
+

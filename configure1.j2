@@ -1,0 +1,10 @@
+## Global Configuration Template apply on all devices
+ntp server {{ ntp.server1 }}
+
+
+## Host specific Configuration
+hostname  {{ hostname.name }}
+router ospf 1
+router-id {{ router.id }}
+interface loopback 0
+ip address {{ address.loopback }}
